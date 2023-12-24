@@ -7,6 +7,14 @@ Short Name: "LED_board"
 # Description
 /TODO/
 
+# ToDos
+- create requirements
+- define critical components (MCU, poti, Mosfets, emc)
+- define mechanical constraints (dimensios glass, mounting priciple, screw positios)
+- create 3D Mockup
+- create schematic
+- create layout
+
 
 # Requirements for LED_board
 
