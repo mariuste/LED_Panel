@@ -31,9 +31,6 @@ Short Name: "LED_board"
 
 # Usage
 
-
-# Part selection
-
 # Part selection
 | Part      | Manufacturer | Part Number       |
 |-----------|--------------|-------------------|
