@@ -60,18 +60,15 @@ Short Name: "LED_panel"
 
 
 # Part selection
-| Part      | Manufacturer | Part Number       |
-|-----------|--------------|-------------------|
-| MCU       | STM          | STM32L011F3U6TR   |
-
-Mit switch: P091S-FC20BR10K
-Ohne Switch: P091N-FC25BR10K
-LED: COB44-001  by LED24
-USB: UJC-HP2-3-SMT-TR
-Regulator: TPS62932DRLR
-Inductor: 7447709150
-MOSFET: SSM3J372R,LF
-LDO: 3V3 supply for STM32
+- MCU: STM32L011F3U6TR
+- Poti /w switch: P091S-FC20BR10K
+- Poti /wo Switch: P091N-FC25BR10K
+- LED: COB44-001  by LED24
+- USB: UJC-HP2-3-SMT-TR
+- Regulator: TPS62932DRLR
+- Inductor: 7447709150
+- MOSFET: SSM3J372R,LF
+- LDO: 3V3 supply for STM32
 
 obsolet (could replace DC/DC):
-LED-driver: TPS92200D2RXLR ? AL8861Y-13 ? IS31LT3350-V1SDLS2-TR
+- LED-driver: TPS92200D2RXLR ? AL8861Y-13 ? IS31LT3350-V1SDLS2-TR
