@@ -57,23 +57,6 @@ GenerateClassCluster=0
 DocumentUniqueId=YNDJVGDW
 
 [Document2]
-DocumentPath=USB_PD_PCB.CSPcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MKTRWDAR
-
-[Document3]
 DocumentPath=Sheet2_USB-PD.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=200
@@ -90,8 +73,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OCVYKNQP
 
-[Document4]
-DocumentPath=Sheet3_MCU_PSU.SchDoc
+[Document3]
+DocumentPath=Sheet3_MCU.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=300
 AnnotationIndexControlEnabled=1
@@ -107,6 +90,40 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KTJQCXGD
 
+[Document4]
+DocumentPath=Sheet4_PSU.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=400
+AnnotationIndexControlEnabled=1
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=3
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=MSOCSMCM
+
+[Document5]
+DocumentPath=LED_panel_PCB.CSPcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=MKTRWDAR
+
 [ProjectVariant1]
 UniqueID=23AC662E-94E9-4FDD-A5AF-B3C84D261047
 Description=Variant1
@@ -116,32 +133,32 @@ VariationCount=0
 ParamVariationCount=0
 
 [Parameter1]
-Name=ProjectName
-Value=Simple USB PD Board
-
-[Parameter2]
-Name=Revision
-Value=V0.1
-
-[Parameter3]
-Name=Signature1
-Value=M.Tetard
-
-[Parameter4]
-Name=Signature2
-Value=2023-10 / Freiburg
-
-[Parameter5]
-Name=Signature3
+Name=Signature5
 Value=
 
-[Parameter6]
+[Parameter2]
 Name=Signature4
 Value=
 
-[Parameter7]
-Name=Signature5
+[Parameter3]
+Name=Signature3
 Value=
+
+[Parameter4]
+Name=Signature2
+Value=2023-12 / Freiburg
+
+[Parameter5]
+Name=Signature1
+Value=M.Tetard
+
+[Parameter6]
+Name=Revision
+Value=V0.1
+
+[Parameter7]
+Name=ProjectName
+Value=LED Panel
 
 [Configuration1]
 Name=Default Configuration

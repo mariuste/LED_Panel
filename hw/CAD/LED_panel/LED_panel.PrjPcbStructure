@@ -1,1 +1,4 @@
 Record=TopLevelDocument|FileName=Sheet1_Overview.SchDoc
+Record=SheetSymbol|Record=SheetSymbol|SourceDocument=Sheet1_Overview.SchDoc|Designator=MCU|SchDesignator=MCU|FileName=Sheet3_MCU.SchDoc|SymbolType=Normal|RawFileName=Sheet3_MCU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|Record=SheetSymbol|SourceDocument=Sheet1_Overview.SchDoc|Designator=PSU|SchDesignator=PSU|FileName=Sheet4_PSU.SchDoc|SymbolType=Normal|RawFileName=Sheet4_PSU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|Record=SheetSymbol|SourceDocument=Sheet1_Overview.SchDoc|Designator=USB PD|SchDesignator=USB PD|FileName=Sheet2_USB-PD.SchDoc|SymbolType=Normal|RawFileName=Sheet2_USB-PD.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
