@@ -65,10 +65,42 @@ Short Name: "LED_panel"
 - Poti /wo Switch: P091N-FC25BR10K
 - LED: COB44-001  by LED24
 - USB: UJC-HP2-3-SMT-TR
+
 - Regulator: TPS62932DRLR
 - Inductor: 7447709150
-- MOSFET: SSM3J372R,LF
-- LDO: 3V3 supply for STM32
 
-obsolet (could replace DC/DC):
+- MOSFET: SI1308EDL-T1-GE3
+- LDO: NCP716MT30TBG
+
+obsolet (could replace DC/DC and MOSFET):
 - LED-driver: TPS92200D2RXLR ? AL8861Y-13 ? IS31LT3350-V1SDLS2-TR
+
+# Preliminary pinmapping
+## USB-PD IC
+- SDA PA13
+- SCL PA9
+- reset PD PB1 (OUT)
+- current availible PA9 (IN)
+- alarm in PA10 (IN)
+
+## Debuging (GPIOS)
+- GPIO1 PC14
+- GPIO2 PC15
+
+## Debugging (SWD)
+- SWDIO PA13
+- SWCLK PA14
+
+## Poti Readback (Vref: 1.224V)
+- Poti1 PA0 (AIN0)
+- Poti2 PA4 (AIN4)
+
+## PWM outputs
+- LED1 PA5 (TIM2_CH1)
+- LED2 PA1 (TIM2_CH2)
+
+## Status LEDs
+- SLED1 PA6
+- SLED2 PA7
+
+
