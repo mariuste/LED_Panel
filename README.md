@@ -46,7 +46,7 @@ Short Name: "LED_panel"
 - loop: read USB-PD for available power, read poti, set brightness and color
 
 ## Power concept
-- LEDs: 22W/m -> 3 * 130mm * 22W = 8.58W (715mA)
+- LEDs: 22W/m -> 3 * 130mm * 22W = 8.58W // 715mA@12V -> with 80%DCDC: 686mA@15V / 515mA@20V
 - USB-PD board set to 15V, >= 1.0A (15W)
 - DC/DC to regulate 15V to 12V, 1A
 - when switch is off-> reset USB PD
@@ -63,7 +63,7 @@ Short Name: "LED_panel"
 - MCU: STM32L011F3U6TR
 - Poti /w switch: P091S-FC20BR10K
 - Poti /wo Switch: P091N-FC25BR10K
-- LED: COB44-001  by LED24
+- LED: COB44-079  by LED24
 - USB: UJC-HP2-3-SMT-TR
 
 - Regulator: TPS62932DRLR
@@ -72,15 +72,16 @@ Short Name: "LED_panel"
 - MOSFET: SI1308EDL-T1-GE3
 - LDO: NCP716MT30TBG
 
+- USBPD: STUSB4500
+
 obsolet (could replace DC/DC and MOSFET):
 - LED-driver: TPS92200D2RXLR ? AL8861Y-13 ? IS31LT3350-V1SDLS2-TR
 
 # Preliminary pinmapping
 ## USB-PD IC
-- SDA PA13
-- SCL PA9
-- reset PD PB1 (OUT)
-- current availible PA9 (IN)
+- SDA PB7
+- SCL PB6
+- reset PD PA9 (OUT)
 - alarm in PA10 (IN)
 
 ## Debuging (GPIOS)
@@ -98,9 +99,4 @@ obsolet (could replace DC/DC and MOSFET):
 ## PWM outputs
 - LED1 PA5 (TIM2_CH1)
 - LED2 PA1 (TIM2_CH2)
-
-## Status LEDs
-- SLED1 PA6
-- SLED2 PA7
-
 
