@@ -1,0 +1,544 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #E2F2F8;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\CS\Templates\CircuitStudio_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">29.12.2023</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">14:03:30</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc" class="file"><acronym title="C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc">C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Errors:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">3</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">42</td></tr>
+</table>
+</td>
+</table><a name="ID4JDC3MKXK0L2DLK3UER4LMW2QE4IV1VJ5KTBOJPQUZ3W3TBOGE4K"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Errors</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2ND4LTZFAJE2EHPOLDWXKJP1DLX1N1R2Q3QVT5MMHNXNPH2NBA2P">Multilayer Pads with 0 size Hole found</a></td>
+<td class="column2">3</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">3</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID332WJQRDUOQOMIUJ3CYDLZKINDOU02KZJUMUDFPS1LWK2IDPDHFM">Clearance Constraint (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4DOWHF5SIUA5E2V3UOLTYMN2VNFROE1YAZ4Y1ICNSSWJ3QVP312G">Width Constraint (Min=0.125mm) (Max=2mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2NP0KNB10M3WBDVD3GIZTBMGMYWRSKBKUVDKLMJLG13T2K4SCJB">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLL05OSU1U5JQFQT1AJ3QCYHSIDXRPWHFQYG3XLH21WPFBSRP12Y">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDL3JSEDQPBUXRDVW1D30YAVBC4BUPS1QMCUQ4EKKFZHLRBURG4G5K">Un-Routed Net Constraint ( (Disabled)(All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQA3U3I0OGWUSGBVGBOEZGEBC1FVG3XGTXW5U5XLSXWVISY2XJCG">Minimum Annular Ring (Minimum=0.2mm) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZ0ZHCZIFMO0GD3OIYJULUNRAJC1DBKTTTSXXTD0SJ2FEKJOSQ4J">Hole Size Constraint (Min=0.2mm) (Max=6.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1WXNQM4HTOCJEQDSVIPXXE5XUDRN42IWVZNIDHFBLUKHESCZO0K">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDH0NUWU33VD3SPKY3VUSAY5ZLEL2IQAKRF4DNMKOXL5ACQVSYBFRF">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYXTWX0W1USJ0DSESUXK2HK5BJH3OEESU0EUVUUD30YFSMAI4PFYF">Minimum Solder Mask Sliver (Gap=0.05mm) (All),(All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGZEXCX1HUIFDOZSNSR0AO5EB5K321KZSGD1XYNERBTUUSKLD1GOJ">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJXAV23A520FKKIVXNL0WIIFJ5JLS0TWWH0TEDZI3OFJHVKBS1PEE">Silk to Silk (Clearance=0.153mm) (All),(All)</a></td>
+<td class="column2">15</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDD5ZSEFTLRTUFMEKZ0FZHF1OE3DUOIO1UPD0MXEPJYPXNC0XKYGSB">Silk primitive without silk layer</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB3HZXQPU0LRHOQXKABIFHLRTXCLQV1QT12KGEXMPJC5UT4MAS2SN">Unpoured Polygon (Allow unpoured: False)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">42</td>
+</tr>
+</table><br><a name="IDJ1XZCC0ROXPKKFDHXZOHI1UEODNZDYJ1QF2X3YHPSVHFV4BD3JNJ"><h2>Warnings</h2></a><a name="ID2ND4LTZFAJE2EHPOLDWXKJP1DLX1N1R2Q3QVT5MMHNXNPH2NBA2P"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Multilayer Pads with 0 size Hole found</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9213.575mil|Location2.X=9292.315mil|Location1.Y=3003.697mil|Location2.Y=3082.437mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9213.575mil|Location2.X=9292.315mil|Location1.Y=3003.697mil|Location2.Y=3082.437mil|Absolute=True">Pad FIDJ102-1(-3mm,3mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3268.693mil|Location2.X=3347.433mil|Location1.Y=5798.973mil|Location2.Y=5877.713mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3268.693mil|Location2.X=3347.433mil|Location1.Y=5798.973mil|Location2.Y=5877.713mil|Absolute=True">Pad FIDJ101-1(-154mm,74mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3268.693mil|Location2.X=3347.433mil|Location1.Y=3003.697mil|Location2.Y=3082.437mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3268.693mil|Location2.X=3347.433mil|Location1.Y=3003.697mil|Location2.Y=3082.437mil|Absolute=True">Pad FIDJ100-1(-154mm,3mm)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDQA3U3I0OGWUSGBVGBOEZGEBC1FVG3XGTXW5U5XLSXWVISY2XJCG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Annular Ring (Minimum=0.2mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9126.336mil|Location2.X=9141.733mil|Location1.Y=3882.009mil|Location2.Y=3891.133mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9126.336mil|Location2.X=9141.733mil|Location1.Y=3882.009mil|Location2.Y=3891.133mil|Absolute=True">Minimum Annular Ring (0.05mm &lt; 0.2mm) : Via (-6.1mm,24.3mm) Top Layer to Bottom Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8147.989mil|Location2.X=8163.386mil|Location1.Y=4285.552mil|Location2.Y=4294.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8147.989mil|Location2.X=8163.386mil|Location1.Y=4285.552mil|Location2.Y=4294.676mil|Absolute=True">Minimum Annular Ring (0.05mm &lt; 0.2mm) : Via (-30.95mm,34.55mm) Top Layer to Bottom Layer</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDH0NUWU33VD3SPKY3VUSAY5ZLEL2IQAKRF4DNMKOXL5ACQVSYBFRF"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8650.583mil|Location2.X=8682.079mil|Location1.Y=4759.602mil|Location2.Y=4791.098mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8650.583mil|Location2.X=8682.079mil|Location1.Y=4759.602mil|Location2.Y=4791.098mil|Absolute=True">Via (-17.9mm,47mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8648.614mil|Location2.X=8684.047mil|Location1.Y=4757.634mil|Location2.Y=4793.067mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8648.614mil|Location2.X=8684.047mil|Location1.Y=4757.634mil|Location2.Y=4793.067mil|Absolute=True">Via (-17.9mm,47mm) Top Layer to Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5416.331mil|Location2.X=5451.764mil|Location1.Y=4088.343mil|Location2.Y=4123.775mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5416.331mil|Location2.X=5451.764mil|Location1.Y=4088.343mil|Location2.Y=4123.775mil|Absolute=True">Via (-100mm,30mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5416.331mil|Location2.X=5451.764mil|Location1.Y=4088.343mil|Location2.Y=4123.775mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5416.331mil|Location2.X=5451.764mil|Location1.Y=4088.343mil|Location2.Y=4123.775mil|Absolute=True">Via (-100mm,30mm) Top Layer to Bottom Layer</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDYXTWX0W1USJ0DSESUXK2HK5BJH3OEESU0EUVUUD30YFSMAI4PFYF"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Minimum Solder Mask Sliver (Gap=0.05mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True">Pad IC200-EP(-12.8mm,26.3mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8892.709mil|Location2.X=8914.362mil|Location1.Y=3924.563mil|Location2.Y=3944.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8892.709mil|Location2.X=8914.362mil|Location1.Y=3924.563mil|Location2.Y=3944.248mil|Absolute=True">Pad IC200-1(-11.875mm,25.64mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8819.874mil|Location2.X=8841.528mil|Location1.Y=3924.563mil|Location2.Y=3944.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8819.874mil|Location2.X=8841.528mil|Location1.Y=3924.563mil|Location2.Y=3944.248mil|Absolute=True">Pad IC200-6(-13.725mm,25.64mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True">Pad IC200-EP(-12.8mm,26.3mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8819.874mil|Location2.X=8841.528mil|Location1.Y=3950.547mil|Location2.Y=3970.232mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8819.874mil|Location2.X=8841.528mil|Location1.Y=3950.547mil|Location2.Y=3970.232mil|Absolute=True">Pad IC200-5(-13.725mm,26.3mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True">Pad IC200-EP(-12.8mm,26.3mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8819.874mil|Location2.X=8841.528mil|Location1.Y=3976.532mil|Location2.Y=3996.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8819.874mil|Location2.X=8841.528mil|Location1.Y=3976.532mil|Location2.Y=3996.216mil|Absolute=True">Pad IC200-4(-13.725mm,26.96mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True">Pad IC200-EP(-12.8mm,26.3mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8892.709mil|Location2.X=8914.362mil|Location1.Y=3976.532mil|Location2.Y=3996.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8892.709mil|Location2.X=8914.362mil|Location1.Y=3976.532mil|Location2.Y=3996.216mil|Absolute=True">Pad IC200-3(-11.875mm,26.96mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True">Pad IC200-EP(-12.8mm,26.3mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8892.709mil|Location2.X=8914.362mil|Location1.Y=3950.547mil|Location2.Y=3970.232mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8892.709mil|Location2.X=8914.362mil|Location1.Y=3950.547mil|Location2.Y=3970.232mil|Absolute=True">Pad IC200-2(-11.875mm,26.3mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8843.103mil|Location2.X=8891.134mil|Location1.Y=3924.563mil|Location2.Y=3996.216mil|Absolute=True">Pad IC200-EP(-12.8mm,26.3mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8695.858mil|Location2.X=8739.165mil|Location1.Y=3970.232mil|Location2.Y=4013.539mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8695.858mil|Location2.X=8739.165mil|Location1.Y=3970.232mil|Location2.Y=4013.539mil|Absolute=True">Pad TP205-1(-16.6mm,27.1mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8739.165mil|Location2.X=8766.724mil|Location1.Y=3967.28mil|Location2.Y=3994.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8739.165mil|Location2.X=8766.724mil|Location1.Y=3967.28mil|Location2.Y=3994.838mil|Absolute=True">Pad R203-2(-15.7mm,26.825mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7794.284mil|Location2.X=7829.717mil|Location1.Y=3241.886mil|Location2.Y=3277.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7794.284mil|Location2.X=7829.717mil|Location1.Y=3241.886mil|Location2.Y=3277.319mil|Absolute=True">Via (-39.6mm,8.5mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7799.913mil|Location2.X=7825.858mil|Location1.Y=3211.905mil|Location2.Y=3241.354mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7799.913mil|Location2.X=7825.858mil|Location1.Y=3211.905mil|Location2.Y=3241.354mil|Absolute=True">Pad P101-2(-39.578mm,7.663mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8926.173mil|Location2.X=8957.669mil|Location1.Y=3003.697mil|Location2.Y=3035.193mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8926.173mil|Location2.X=8957.669mil|Location1.Y=3003.697mil|Location2.Y=3035.193mil|Absolute=True">Via (-10.9mm,2.4mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8945.858mil|Location2.X=8987.197mil|Location1.Y=3032.24mil|Location2.Y=3093.264mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8945.858mil|Location2.X=8987.197mil|Location1.Y=3032.24mil|Location2.Y=3093.264mil|Absolute=True">Pad C201-1(-10.275mm,3.5mm)  Top Layer</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDGZEXCX1HUIFDOZSNSR0AO5EB5K321KZSGD1XYNERBTUUSKLD1GOJ"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8872.039mil|Location2.X=8893.693mil|Location1.Y=2839.327mil|Location2.Y=2845.232mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8872.039mil|Location2.X=8893.693mil|Location1.Y=2839.327mil|Location2.Y=2845.232mil|Absolute=True">Track (-12.6mm,-2.1mm)(-12.2mm,-2.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8884.835mil|Location2.X=8920.268mil|Location1.Y=2848.185mil|Location2.Y=2873.776mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8884.835mil|Location2.X=8920.268mil|Location1.Y=2848.185mil|Location2.Y=2873.776mil|Absolute=True">Pad D200-1(-11.9mm,-1.625mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8773.614mil|Location2.X=8795.268mil|Location1.Y=3036.177mil|Location2.Y=3042.083mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8773.614mil|Location2.X=8795.268mil|Location1.Y=3036.177mil|Location2.Y=3042.083mil|Absolute=True">Track (-15.1mm,2.9mm)(-14.7mm,2.9mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8747.04mil|Location2.X=8782.472mil|Location1.Y=3007.634mil|Location2.Y=3033.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8747.04mil|Location2.X=8782.472mil|Location1.Y=3007.634mil|Location2.Y=3033.224mil|Absolute=True">Pad D201-1(-15.4mm,2.425mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9296.252mil|Location2.X=9304.126mil|Location1.Y=4094.248mil|Location2.Y=4098.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9296.252mil|Location2.X=9304.126mil|Location1.Y=4094.248mil|Location2.Y=4098.185mil|Absolute=True">Track (-1.85mm,29.75mm)(-1.75mm,29.75mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9290.347mil|Location2.X=9333.654mil|Location1.Y=4059.799mil|Location2.Y=4093.264mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9290.347mil|Location2.X=9333.654mil|Location1.Y=4059.799mil|Location2.Y=4093.264mil|Absolute=True">Pad D204-A(-1.5mm,29.25mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8902.551mil|Location2.X=8997.014mil|Location1.Y=4184.799mil|Location2.Y=4247.776mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8902.551mil|Location2.X=8997.014mil|Location1.Y=4184.799mil|Location2.Y=4247.776mil|Absolute=True">Text "WW" (-11.7mm,32.2mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8977.345mil|Location2.X=9008.841mil|Location1.Y=4153.303mil|Location2.Y=4184.799mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8977.345mil|Location2.X=9008.841mil|Location1.Y=4153.303mil|Location2.Y=4184.799mil|Absolute=True">Pad D100-3(-9.6mm,31.6mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8491.134mil|Location2.X=8495.071mil|Location1.Y=3171.02mil|Location2.Y=3297.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8491.134mil|Location2.X=8495.071mil|Location1.Y=3171.02mil|Location2.Y=3297.004mil|Absolute=True">Track (-22.3mm,6.3mm)(-22.3mm,9.4mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8498.024mil|Location2.X=8525.583mil|Location1.Y=3277.319mil|Location2.Y=3304.878mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8498.024mil|Location2.X=8525.583mil|Location1.Y=3277.319mil|Location2.Y=3304.878mil|Absolute=True">Pad C402-1(-21.825mm,9.3mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8010.819mil|Location2.X=8495.071mil|Location1.Y=3293.067mil|Location2.Y=3297.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8010.819mil|Location2.X=8495.071mil|Location1.Y=3293.067mil|Location2.Y=3297.004mil|Absolute=True">Track (-34.5mm,9.4mm)(-22.3mm,9.4mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8498.024mil|Location2.X=8525.583mil|Location1.Y=3277.319mil|Location2.Y=3304.878mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8498.024mil|Location2.X=8525.583mil|Location1.Y=3277.319mil|Location2.Y=3304.878mil|Absolute=True">Pad C402-1(-21.825mm,9.3mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.937mil|Location2.X=3696.843mil|Location1.Y=3587.358mil|Location2.Y=3734.996mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.937mil|Location2.X=3696.843mil|Location1.Y=3587.358mil|Location2.Y=3734.996mil|Absolute=True">Track (-144.2mm,16.9mm)(-144.2mm,20.5mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3502.945mil|Location2.X=3743.102mil|Location1.Y=3737.949mil|Location2.Y=3820.626mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3502.945mil|Location2.X=3743.102mil|Location1.Y=3737.949mil|Location2.Y=3820.626mil|Absolute=True">Pad X100-1(-146mm,21.7mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.937mil|Location2.X=3696.843mil|Location1.Y=4374.76mil|Location2.Y=4522.398mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.937mil|Location2.X=3696.843mil|Location1.Y=4374.76mil|Location2.Y=4522.398mil|Absolute=True">Track (-144.2mm,36.9mm)(-144.2mm,40.5mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3502.945mil|Location2.X=3743.102mil|Location1.Y=4525.35mil|Location2.Y=4608.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3502.945mil|Location2.X=3743.102mil|Location1.Y=4525.35mil|Location2.Y=4608.028mil|Absolute=True">Pad X101-1(-146mm,41.7mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.937mil|Location2.X=3696.843mil|Location1.Y=5162.162mil|Location2.Y=5309.799mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.937mil|Location2.X=3696.843mil|Location1.Y=5162.162mil|Location2.Y=5309.799mil|Absolute=True">Track (-144.2mm,56.9mm)(-144.2mm,60.5mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3502.945mil|Location2.X=3743.102mil|Location1.Y=5312.752mil|Location2.Y=5395.429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3502.945mil|Location2.X=3743.102mil|Location1.Y=5312.752mil|Location2.Y=5395.429mil|Absolute=True">Pad X102-1(-146mm,61.7mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9435.858mil|Location2.X=9675.787mil|Location1.Y=3430.705mil|Location2.Y=3510.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9435.858mil|Location2.X=9675.787mil|Location1.Y=3430.705mil|Location2.Y=3510.685mil|Absolute=True">Text "J200" (1.9mm,13.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9393.102mil|Location2.X=9460.031mil|Location1.Y=3468.264mil|Location2.Y=3503.697mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9393.102mil|Location2.X=9460.031mil|Location1.Y=3468.264mil|Location2.Y=3503.697mil|Absolute=True">Pad J200-A12(1.41mm,14.25mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9435.858mil|Location2.X=9675.787mil|Location1.Y=3430.705mil|Location2.Y=3510.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9435.858mil|Location2.X=9675.787mil|Location1.Y=3430.705mil|Location2.Y=3510.685mil|Absolute=True">Text "J200" (1.9mm,13.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9393.102mil|Location2.X=9460.031mil|Location1.Y=3420.626mil|Location2.Y=3454.484mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9393.102mil|Location2.X=9460.031mil|Location1.Y=3420.626mil|Location2.Y=3454.484mil|Absolute=True">Pad J200-A9(1.41mm,13.02mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.937mil|Location2.X=8870.071mil|Location1.Y=3445.626mil|Location2.Y=3451.531mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.937mil|Location2.X=8870.071mil|Location1.Y=3445.626mil|Location2.Y=3451.531mil|Absolute=True">Track (-144.2mm,13.3mm)(-12.8mm,13.3mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7840.051mil|Location2.X=7883.358mil|Location1.Y=3404.78mil|Location2.Y=3448.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7840.051mil|Location2.X=7883.358mil|Location1.Y=3404.78mil|Location2.Y=3448.087mil|Absolute=True">Pad TP100-1(-38.338mm,12.738mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9076.764mil|Location2.X=9590.543mil|Location1.Y=4244.839mil|Location2.Y=4250.744mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9076.764mil|Location2.X=9590.543mil|Location1.Y=4244.839mil|Location2.Y=4250.744mil|Absolute=True">Track (-7.4mm,33.6mm)(5.5mm,33.6mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9207.669mil|Location2.X=9250.976mil|Location1.Y=4198.579mil|Location2.Y=4241.886mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9207.669mil|Location2.X=9250.976mil|Location1.Y=4198.579mil|Location2.Y=4241.886mil|Absolute=True">Pad TP230-1(-3.6mm,32.9mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9076.764mil|Location2.X=9590.543mil|Location1.Y=4244.839mil|Location2.Y=4250.744mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9076.764mil|Location2.X=9590.543mil|Location1.Y=4244.839mil|Location2.Y=4250.744mil|Absolute=True">Track (-7.4mm,33.6mm)(5.5mm,33.6mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9073.811mil|Location2.X=9117.118mil|Location1.Y=4198.579mil|Location2.Y=4241.886mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9073.811mil|Location2.X=9117.118mil|Location1.Y=4198.579mil|Location2.Y=4241.886mil|Absolute=True">Pad TP231-1(-7mm,32.9mm)  Top Layer</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJXAV23A520FKKIVXNL0WIIFJ5JLS0TWWH0TEDZI3OFJHVKBS1PEE"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk to Silk (Clearance=0.153mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True">Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6631.882mil|Location2.X=7031.488mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6631.882mil|Location2.X=7031.488mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True">Track (-69.5mm,13.5mm)(-59.5mm,23.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True">Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6395.662mil|Location2.X=6795.268mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6395.662mil|Location2.X=6795.268mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True">Track (-75.5mm,13.5mm)(-65.5mm,23.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True">Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6159.441mil|Location2.X=6559.047mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6159.441mil|Location2.X=6559.047mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True">Track (-81.5mm,13.5mm)(-71.5mm,23.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True">Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5923.221mil|Location2.X=6322.827mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5923.221mil|Location2.X=6322.827mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True">Track (-87.5mm,13.5mm)(-77.5mm,23.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=3541.111mil|Location2.Y=3733.973mil|Absolute=True">Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687mil|Location2.X=6086.606mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687mil|Location2.X=6086.606mil|Location1.Y=3453.5mil|Location2.Y=3853.106mil|Absolute=True">Track (-93.5mm,13.5mm)(-83.5mm,23.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True">Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6631.882mil|Location2.X=7031.488mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6631.882mil|Location2.X=7031.488mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True">Track (-69.5mm,33.5mm)(-59.5mm,43.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True">Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6395.662mil|Location2.X=6795.268mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6395.662mil|Location2.X=6795.268mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True">Track (-75.5mm,33.5mm)(-65.5mm,43.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True">Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6159.441mil|Location2.X=6559.047mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6159.441mil|Location2.X=6559.047mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True">Track (-81.5mm,33.5mm)(-71.5mm,43.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True">Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5923.221mil|Location2.X=6322.827mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5923.221mil|Location2.X=6322.827mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True">Track (-87.5mm,33.5mm)(-77.5mm,43.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=4328.513mil|Location2.Y=4521.375mil|Absolute=True">Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687mil|Location2.X=6086.606mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687mil|Location2.X=6086.606mil|Location1.Y=4240.902mil|Location2.Y=4640.508mil|Absolute=True">Track (-93.5mm,33.5mm)(-83.5mm,43.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True">Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6631.882mil|Location2.X=7031.488mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6631.882mil|Location2.X=7031.488mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True">Track (-69.5mm,53.5mm)(-59.5mm,63.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True">Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6395.662mil|Location2.X=6795.268mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6395.662mil|Location2.X=6795.268mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True">Track (-75.5mm,53.5mm)(-65.5mm,63.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True">Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6159.441mil|Location2.X=6559.047mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6159.441mil|Location2.X=6559.047mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True">Track (-81.5mm,53.5mm)(-71.5mm,63.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True">Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5923.221mil|Location2.X=6322.827mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5923.221mil|Location2.X=6322.827mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True">Track (-87.5mm,53.5mm)(-77.5mm,63.5mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790.347mil|Location2.X=6809.713mil|Location1.Y=5115.914mil|Location2.Y=5308.777mil|Absolute=True">Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687mil|Location2.X=6086.606mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel_PCB.CSPcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687mil|Location2.X=6086.606mil|Location1.Y=5028.303mil|Location2.Y=5427.909mil|Absolute=True">Track (-93.5mm,53.5mm)(-83.5mm,63.5mm)  Top Overlay</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
