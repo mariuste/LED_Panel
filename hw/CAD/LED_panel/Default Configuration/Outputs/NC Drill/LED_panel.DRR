@@ -1,0 +1,20 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: LED_panel.CSPcbDoc   04.01.2024  17:01:14
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : LED_panel-RoundHoles.TXT
+ASCII SlotHoles File : LED_panel-SlotHoles.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        11.8mil (0.29972mm)      Round          50               10.62 Inch (269.75 mm)
+T2        15.7mil (0.39878mm)      Round          347              86.03 Inch (2185.13 mm)
+T3        23.6mil (0.59944mm)      Slot           4                283.72 Inch (7206.58 mm)
+T4        39.4mil (1.00076mm)      Round          8                1.82 Inch (46.25 mm)
+T5        169.3mil (4.30022mm)     Round          8                19.25 Inch (488.91 mm)
+T6        39mil (0.9906mm)         Round          3         NPTH   0.28 Inch (7.21 mm)
+---------------------------------------------------------------------------
+Totals                                            420              401.73 Inch (10203.83 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00
