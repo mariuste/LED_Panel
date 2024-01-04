@@ -108,7 +108,7 @@ GenerateClassCluster=0
 DocumentUniqueId=MSOCSMCM
 
 [Document5]
-DocumentPath=LED_panel_PCB.CSPcbDoc
+DocumentPath=LED_panel.CSPcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -133,36 +133,40 @@ VariationCount=0
 ParamVariationCount=0
 
 [GeneratedDocument1]
+DocumentPath=Outputs\Design Rule Check - LED_panel.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
 DocumentPath=Outputs\Design Rule Check - LED_panel_PCB.html
 DItemRevisionGUID=
 
 [Parameter1]
-Name=ProjectName
-Value=LED Panel
-
-[Parameter2]
-Name=Revision
-Value=V0.1
-
-[Parameter3]
-Name=Signature1
-Value=M.Tetard
-
-[Parameter4]
-Name=Signature2
-Value=2023-12 / Freiburg
-
-[Parameter5]
-Name=Signature3
+Name=Signature5
 Value=
 
-[Parameter6]
+[Parameter2]
 Name=Signature4
 Value=
 
-[Parameter7]
-Name=Signature5
+[Parameter3]
+Name=Signature3
 Value=
+
+[Parameter4]
+Name=Signature2
+Value=2024-01 / Freiburg
+
+[Parameter5]
+Name=Signature1
+Value=M.Tetard
+
+[Parameter6]
+Name=Revision
+Value=V1.0
+
+[Parameter7]
+Name=ProjectName
+Value=LED Panel
 
 [Configuration1]
 Name=Default Configuration
@@ -199,7 +203,7 @@ OutputDefault1=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=Microsoft Print to PDF
+TargetPrinter=PDF-XChange Lite
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintWhat=1
 
 [OutputGroup3]

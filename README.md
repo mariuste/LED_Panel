@@ -2,7 +2,9 @@
 # Project Parameters
 Name: "LED light panel with adjustable color temperature"
 Description: "USB-C powered LED Light with adjustable brigthness and color temperature"
-Short Name: "LED_panel"
+Short Name: "LED Panel"
+Github Name: "LED_Panel"
+PCB Name: "LED_Panel"
 
 # Description
 /TODO/

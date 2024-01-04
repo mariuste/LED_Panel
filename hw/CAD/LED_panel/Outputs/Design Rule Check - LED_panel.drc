@@ -1,0 +1,85 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\mariu\Documents\GitHub\LED_Panel\hw\CAD\LED_panel\LED_panel.CSPcbDoc
+Date     : 04.01.2024
+Time     : 14:15:26
+
+WARNING: Multilayer Pads with 0 size Hole found
+   Pad FIDJ100-1(-154mm,3mm)  Multi-Layer
+   Pad FIDJ101-1(-154mm,74mm)  Multi-Layer
+   Pad FIDJ102-1(-3mm,3mm)  Multi-Layer
+
+Processing Rule : Unpoured Polygon (Allow unpoured: False)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.153mm) (All),(All)
+   Violation between Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay and 
+                     Track (-93.5mm,53.5mm)(-83.5mm,63.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay and 
+                     Track (-87.5mm,53.5mm)(-77.5mm,63.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay and 
+                     Track (-81.5mm,53.5mm)(-71.5mm,63.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay and 
+                     Track (-75.5mm,53.5mm)(-65.5mm,63.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,57.1mm)  Top Overlay and 
+                     Track (-69.5mm,53.5mm)(-59.5mm,63.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay and 
+                     Track (-69.5mm,33.5mm)(-59.5mm,43.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay and 
+                     Track (-75.5mm,33.5mm)(-65.5mm,43.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay and 
+                     Track (-81.5mm,33.5mm)(-71.5mm,43.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay and 
+                     Track (-87.5mm,33.5mm)(-77.5mm,43.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,37.1mm)  Top Overlay and 
+                     Track (-93.5mm,33.5mm)(-83.5mm,43.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay and 
+                     Track (-93.5mm,13.5mm)(-83.5mm,23.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay and 
+                     Track (-87.5mm,13.5mm)(-77.5mm,23.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay and 
+                     Track (-81.5mm,13.5mm)(-71.5mm,23.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay and 
+                     Track (-75.5mm,13.5mm)(-65.5mm,23.5mm)  Top Overlay
+   Violation between Text "LED Strip" (-90.5mm,17.1mm)  Top Overlay and 
+                     Track (-69.5mm,13.5mm)(-59.5mm,23.5mm)  Top Overlay
+Rule Violations :15
+
+Processing Rule : Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.05mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.2mm) (Max=6.3mm) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=0.2mm) (All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (Disabled)(All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.125mm) (Max=2mm) (Preferred=0.2mm) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.1mm) (All),(All)
+Rule Violations :0
+
+
+Violations Detected : 15
+Time Elapsed        : 00:00:13
