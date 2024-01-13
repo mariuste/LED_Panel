@@ -154,70 +154,74 @@ DocumentPath=Default Configuration\Outputs\BOM\BOM_PartType-LED_panel.csv
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Default Configuration\Outputs\NC Drill\LED_panel-RoundHoles.TXT
+DocumentPath=Outputs\Design Rule Check - LED_panel.html
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Default Configuration\Outputs\NC Drill\LED_panel-SlotHoles.TXT
+DocumentPath=Default Configuration\Outputs\NC Drill\LED_panel-RoundHoles.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Default Configuration\Outputs\NC Drill\LED_panel.DRR
+DocumentPath=Default Configuration\Outputs\NC Drill\LED_panel-SlotHoles.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.EXTREP
+DocumentPath=Default Configuration\Outputs\NC Drill\LED_panel.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GBL
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GBO
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GBP
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GBS
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GTL
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GTO
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GTP
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GTS
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Default Configuration\Outputs\NC Drill\LED_panel.LDP
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.Outline
+DocumentPath=Default Configuration\Outputs\NC Drill\LED_panel.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.REP
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.Outline
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.RUL
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.REP
 DItemRevisionGUID=
 
 [GeneratedDocument18]
+DocumentPath=Default Configuration\Outputs\Gerber\LED_panel.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument19]
 DocumentPath=Default Configuration\Outputs\ExportSTEP\LED_panel.step
 DItemRevisionGUID=
 
